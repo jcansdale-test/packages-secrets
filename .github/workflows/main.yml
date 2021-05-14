@@ -17,17 +17,11 @@ jobs:
     steps:
 
     - run: |
-        docker login ghcr.io -u token -p ${{ github.token }}
+        docker login ghcr.io -u token -p ${{ secrets.READ_PACKAGES_TOKEN }}
 
     - name: pull ghcr.io
       run: |
         docker pull ${{ env.IMAGE }}
-
-    - name: push ghcr.io
-      run: |
-        docker pull alpine
-        docker tag alpine ${{ env.IMAGE }}
-        docker push ${{ env.IMAGE }}
 
     - uses: actions/checkout@v2
       with:
