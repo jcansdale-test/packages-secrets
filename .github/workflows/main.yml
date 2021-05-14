@@ -15,6 +15,13 @@ jobs:
 
     - run: |
         docker login ghcr.io -u token -p ${{ github.token }}
+
+    - name: pull ghcr.io
+      run: |
+        docker pull ghcr.io/${{ github.repository }}
+
+    - name: push ghcr.io
+      run: |
         docker pull alpine
         docker tag alpine ghcr.io/${{ github.repository }}
         docker push ghcr.io/${{ github.repository }}
