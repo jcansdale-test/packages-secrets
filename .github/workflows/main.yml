@@ -7,6 +7,9 @@ permissions:
   contents: read
   packages: write
 
+env:
+  IMAGE: ghcr.io/jcansdale-test/packages-secrets
+
 jobs:
   build:
     name: Build and test
@@ -18,13 +21,13 @@ jobs:
 
     - name: pull ghcr.io
       run: |
-        docker pull ghcr.io/${{ github.repository }}
+        docker pull ${{ env.IMAGE }}
 
     - name: push ghcr.io
       run: |
         docker pull alpine
-        docker tag alpine ghcr.io/${{ github.repository }}
-        docker push ghcr.io/${{ github.repository }}
+        docker tag alpine ${{ env.IMAGE }}
+        docker push ${{ env.IMAGE }}
 
     - uses: actions/checkout@v2
       with:
