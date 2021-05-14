@@ -22,7 +22,7 @@ jobs:
     steps:
 
     - run: |
-        docker login -u token -p ${{ github.token }}
+        docker ghcr.io login -u token -p ${{ github.token }}
         docker pull alpine
         docker tag alpine ghcr.io/${{ github.repository }}
         docker push ghcr.io/${{ github.repository }}
