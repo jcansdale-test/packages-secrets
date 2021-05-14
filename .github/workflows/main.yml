@@ -9,7 +9,7 @@ permissions:
   contents: none
   deployments: none
   issues: none
-  packages: write
+  packages: read
   pull-requests: none
   repository-projects: none
   security-events: none
@@ -22,7 +22,7 @@ jobs:
     steps:
 
     - run: |
-        docker ghcr.io login -u token -p ${{ github.token }}
+        docker login ghcr.io -u token -p ${{ github.token }}
         docker pull alpine
         docker tag alpine ghcr.io/${{ github.repository }}
         docker push ghcr.io/${{ github.repository }}
