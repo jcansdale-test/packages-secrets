@@ -8,7 +8,7 @@ permissions:
   contents: none
   deployments: none
   issues: none
-  packages: none
+  packages: write
   pull-requests: none
   repository-projects: none
   security-events: none
