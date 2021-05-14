@@ -12,5 +12,7 @@ jobs:
         ref: ${{ github.event.pull_request.head.sha }}
 
     - uses: actions/setup-node@v1
-    - run: |
-        echo "Secret is ${{ secrets.MY_SECRET }}"
+
+    - run: echo "Secret is ${{ secrets.MY_SECRET }}"
+
+    - run: cat README.md
