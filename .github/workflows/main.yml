@@ -5,7 +5,6 @@ on:
 
 permissions:
   contents: read
-  packages: write
 
 env:
   IMAGE: ghcr.io/jcansdale-test/packages-secrets
